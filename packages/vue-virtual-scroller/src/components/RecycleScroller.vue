@@ -766,7 +766,7 @@ export default {
     sortViews () {
       this.pool.sort((viewA, viewB) => viewA.nr.index - viewB.nr.index)
 
-      if(this.isAnyVisibleGap()) {
+      if (this.isAnyVisibleGap(false)) {
         this.updateVisibleItems()
         clearTimeout(this.$_sortTimer)
       }
