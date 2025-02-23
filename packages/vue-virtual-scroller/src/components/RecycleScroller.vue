@@ -409,7 +409,9 @@ export default {
           view = pool[i]
           if (view.nr.used) {
             const viewVisible = view.nr.index >= startIndex && view.nr.index < endIndex
-            const viewSize = itemSize || sizes[i].size
+            const { size } = sizes[i] ?? {}
+            const viewSize = itemSize || size
+            
             if (!viewVisible || !viewSize) {
               this.removeAndRecycleView(view)
             }
